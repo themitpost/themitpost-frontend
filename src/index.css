@@ -87,6 +87,23 @@ p {
 	transform: translateY(-2px);
 }
 
+.navbar-brand-link {
+	color: #f06739;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem 0;
+}
+
+.navbar-brand-link img {
+	height: 4rem;
+}
+
+.navbar-brand-link:hover {
+	color: #f3440a;
+}
+
 /* Hero Section */
 .hero {
 	text-align: center;
@@ -349,23 +366,6 @@ p {
 	margin: 0;
 	font-size: 14px;
 	color: #cccccc;
-}
-
-.navbar-brand-link {
-	color: #f06739;
-	text-decoration: none;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 1rem 0;
-}
-
-.navbar-brand-link img {
-	height: 4rem;
-}
-
-.navbar-brand-link:hover {
-	color: #f3440a;
 }
 
 /* Add this to your CSS file */
