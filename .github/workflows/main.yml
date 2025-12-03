@@ -1,0 +1,12 @@
+name: Auto Deploy via Hook
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Vercel Deploy Hook
+        run: curl -X POST "https://api.vercel.com/v1/integrations/deploy/prj_PQQOEIIbE7R9bTVT5DMb1ekadMTz/Qp6m4w192C"
