@@ -5,6 +5,7 @@
 	align-items: center;
 	background-color: transparent;
 	position: sticky;
+	/* width: 100%; */
 	top: 0;
 	z-index: 1000;
 	background-color: rgba(18, 18, 18, 0.8);

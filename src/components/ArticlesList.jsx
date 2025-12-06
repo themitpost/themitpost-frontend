@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
+import "./ArticlesList.css";
 
 const ArticlesList = ({ articles }) => {
 	const fallbackImage = "/test.jpg";
@@ -47,12 +48,14 @@ const ArticlesList = ({ articles }) => {
 						<div className="articles-list-sample">
 							{parse(article.content.slice(0, 400).trim() + "...")}
 						</div>
-						<p className="articles-list-meta">
-							By {article.creator} | {new Date(article.pubDate).toLocaleDateString()}
-						</p>
-						<Link to={`/articles/${article._id}`} className="read-more-button">
-							Read More
-						</Link>
+						<div className="bottom-container">
+							<p className="articles-list-meta">
+								By {article.creator} | {new Date(article.pubDate).toLocaleDateString()}
+							</p>
+							<Link to={`/articles/${article._id}`} className="read-more-button">
+								Read More
+							</Link>
+						</div>
 					</div>
 				</div>
 			))}

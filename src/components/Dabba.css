@@ -1,0 +1,37 @@
+.dabba {
+	flex: 1;
+	background-color: rgba(18, 18, 18, 0.8);
+	backdrop-filter: blur(10px);
+	border: 1px solid gray;
+	position: sticky;
+	top: calc(min(4rem, 10vw) + 2vh + 4rem + 5.6px);
+	height: calc(99vh - (min(4rem, 10vw) + 2vh + 4rem + 5.6px));
+	overflow-y: auto;
+}
+
+.dabba-left {
+	border-left: none;
+}
+
+.dabba-right {
+	border-right: none;
+}
+
+.dabba-content {
+	padding: 1rem;
+}
+
+.dabba-content h2 {
+	color: #f06739;
+	padding: 1rem;
+}
+
+.dabba-content ul {
+	padding-left: 1rem;
+}
+
+.dabba-content li {
+	list-style-type: none;
+	padding: 0.5rem;
+	font-size: 1.2rem;
+}

@@ -4,8 +4,10 @@ import { useAuth } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Categories from "./components/Categories";
-import CarouselComponent from "./components/CarouselComponent";
-import FamousArticles from "./components/FamousArticles";
+// import CarouselComponent from "./components/CarouselComponent";
+// import FamousArticles from "./components/FamousArticles";
+import DabbaLeft from "./components/DabbaLeft";
+import DabbaRight from "./components/DabbaRight";
 import ArticlesList from "./components/ArticlesList";
 import ArticleDetail from "./components/ArticleDetail";
 import Footer from "./components/Footer";
@@ -25,9 +27,15 @@ const HomePage = ({ articles, famousArticleIDs, listArticleIDs }) => {
 				<Hero />
 				<Categories />
 				<div className="not-hero">
+					<div>
+						<DabbaLeft />
+					</div>
 					{/* <CarouselComponent articles={articles.slice(0, 6)} />
 					<FamousArticles articles={articles} ids={famousArticleIDs} /> */}
 					<ArticlesList articles={articles} ids={listArticleIDs} />
+					<div>
+						<DabbaRight />
+					</div>
 				</div>
 			</div>
 			<Footer />
