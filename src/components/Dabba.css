@@ -9,6 +9,15 @@
 	overflow-y: auto;
 }
 
+.dabba::-webkit-scrollbar {
+	width: 8px;
+}
+
+.dabba::-webkit-scrollbar-thumb {
+	background: #3e3e3e;
+	border-radius: 4px;
+}
+
 .dabba-left {
 	border-left: none;
 }

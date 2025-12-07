@@ -11,6 +11,10 @@
 	background-color: #5b68eb;
 }
 
+::-webkit-scrollbar-button {
+	visibility: collapse;
+}
+
 /* General Styles */
 body {
 	margin: 0;
