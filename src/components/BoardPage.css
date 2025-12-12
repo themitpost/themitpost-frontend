@@ -7,7 +7,7 @@
 }
 
 .board-page h2 {
-  font-size: 3rem;
+  font-size: max(1.5rem, 3.5vw);
   text-align: center;
   color: #f06739;
   border-bottom: 2.5px solid white;
@@ -16,7 +16,7 @@
 }
 
 .board-page h3 {
-  font-size: 2rem;
+  font-size: max(1.3rem, 2.5vw);
   text-align: center;
   color: #f06739;
   font-weight: 600;
@@ -32,16 +32,17 @@
   margin-bottom: 2rem;
 }
 
+.subboard .member-card img {
+  width: 11vw;
+  height: 11vw;
+}
+
 .member-card {
   border-radius: 0.5rem;
   padding: 1rem;
   text-align: center;
   transition: 0.3s ease;
   width: 20vw;
-  /* margin: 1rem;
-  background-color: transparent;
-  background-color: rgba(64, 64, 64, 0.8);
-  backdrop-filter: blur(2px); */
 }
 
 .member-card img {
@@ -53,10 +54,39 @@
 }
 
 .member-card p {
-  font-size: 1.3rem;
-  /* color: ; */
+  font-size: min(1.3rem, 4vw);
 }
 
 .member-card h4 {
   font-weight: 400;
+  font-size: min(1rem, 2.7vw);
+}
+
+@media screen and (max-width: 600px) {
+  .board-page {
+    margin: 0.2rem 0.5rem;
+  }
+
+  .board-section {
+    padding: 0 0.5rem;
+  }
+
+  .member-card {
+    display: flex;
+    width: 77%;
+    justify-content: space-between;
+  }
+
+  .member-card div {
+    margin: auto;
+  }
+
+  .member-card:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .member-card img {
+    min-width: 20vw;
+    height: 20vw;
+  }
 }

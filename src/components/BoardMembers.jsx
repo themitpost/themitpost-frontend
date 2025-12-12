@@ -22,8 +22,10 @@ const BoardMembers = () => {
         return (
           <div className="member-card" key={index}>
             <img src={src} alt={member.name} />
-            <p>{member.position}</p>
-            <h4>{member.name}</h4>
+            <div>
+              <p>{member.position}</p>
+              <h4>{member.name}</h4>
+            </div>
           </div>
         );
       })}

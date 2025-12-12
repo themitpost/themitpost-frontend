@@ -18,7 +18,7 @@ const BoardPage = () => {
         <h3>Board Members</h3>
         <BoardMembers />
         <h3>Subboard Members</h3>
-        {/* <SubboardMembers /> */}
+        <SubboardMembers />
       </div>
 
       <Footer />

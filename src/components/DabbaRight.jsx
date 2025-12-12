@@ -9,11 +9,15 @@ const DabbaRight = () => {
       <section className="dabba-content">
         <h2>About</h2>
         <ul>
-          <li className="category">About Us</li>
+          <li className="category">
+            <Link to="/aboutUs">About Us</Link>
+          </li>
           <li className="category">
             <Link to="/board">The Board of 2025-26</Link>
           </li>
-          <li className="category">From the Editor's Desk</li>
+          <li className="category">
+            <Link to="/fromTheEditorsDesk">From the Editor's Desk</Link>
+          </li>
         </ul>
       </section>
       <section className="social-media">
@@ -42,10 +46,34 @@ const DabbaRight = () => {
       <section className="dabba-content">
         <h2>Resources</h2>
         <ul>
-          <li className="category">MIT Information Brochure</li>
-          <li className="category">Academic Calendar</li>
-          <li className="category">All Branches Syllabus</li>
-          <li className="category">CGPA Conversion Factor</li>
+          <li className="category">
+            <a href="/resources/academic_calender.pdf" target="_blank">
+              Academic Calender 25-26
+            </a>
+          </li>
+          <li className="category">
+            <a href="/resources/academic_handbook.pdf" target="_blank">
+              Academic Handbook 25-26
+            </a>
+          </li>
+          <li className="category">
+            <a
+              href="https://teams.microsoft.com/l/channel/19%3ATL33jeLE7fX2AMyd610G_9_LOEWe2fNZ4TBIrHlo8_Q1%40thread.tacv2/General?groupId=ea86aefe-31d7-41c4-ba6b-512594ff6c2a&tenantId=29bebd42-f1ff-4c3d-9688-067e3460dc1f"
+              target="_blank"
+            >
+              Manipal OSF
+            </a>
+          </li>
+          <li className="category">
+            <a href="https://mitmpllibportal.manipal.edu/" target="_blank">
+              Library Portal
+            </a>
+          </li>
+          <li className="category">
+            <a href="https://www.manipal.edu/mit.html" target="_blank">
+              MIT Website
+            </a>
+          </li>
         </ul>
       </section>
     </nav>

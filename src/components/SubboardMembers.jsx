@@ -2,26 +2,35 @@
 import React from "react";
 
 const boardData = [
-  { name: "Akshat Aggarwal", position: "Writing & PAV Subhead" },
-  { name: "Aastha Sharma", position: "Art Subhead" },
-  { name: "Ojas Gupta", position: "Public Relations Subhead" },
-  { name: "Shubham Sharma", position: "Social Media & Graphic Design Subhead" },
-  { name: "Aditi Rishiraj", position: "Web Development Head" },
+  { name: "Atharv Hrishikesh Pawar", position: "Writing" },
+  { name: "Kamav Bansal", position: "Writing" },
+  { name: "Deekshith Reddy", position: "Writing" },
+  { name: "Parinita Mahanty", position: "Writing" },
+  { name: "Vaibhav Shukla", position: "Writing" },
+  { name: "Anyuta Kumar", position: "Art" },
+  { name: "Ashi Sharma", position: "SMGD" },
+  { name: "Dhruv Tewtia", position: "SMGD" },
+  { name: "Niharika Sujit", position: "SMGD" },
+  { name: "Eknoor Singh Chhabra", position: "SMGD" },
+  { name: "Shreyansh Giri", position: "PAV" },
+  { name: "Vihang", position: "PAV" },
 ];
 
 const SubboardMembers = () => {
   return (
-    <div className="board-section">
+    <div className="board-section subboard">
       {boardData.map((member, index) => {
         const baseName = member.name.replace(/ /g, "_");
 
-        const src = `/team-pictures/board/${baseName}.webp`;
+        const src = `/team-pictures/subboard/${baseName}.webp`;
 
         return (
           <div className="member-card" key={index}>
             <img src={src} alt={member.name} />
-            <p>{member.position}</p>
-            <h4>{member.name}</h4>
+            <div>
+              <p>{member.position}</p>
+              <h4>{member.name}</h4>
+            </div>
           </div>
         );
       })}
