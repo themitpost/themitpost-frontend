@@ -1,0 +1,36 @@
+import React from "react";
+import Navbar from "./Navbar";
+import Hero from "./Hero";
+import Categories from "./Categories";
+import DabbaLeft from "./DabbaLeft";
+import DabbaRight from "./DabbaRight";
+import ArticlesList from "./ArticlesList";
+import Footer from "./Footer";
+import RotatingCircle from "./RotatingCircle";
+
+const HomePage = ({ articles }) => {
+	return (
+		<>
+			<RotatingCircle />
+			<Navbar />
+			<div className="app-container">
+				<Hero />
+				<Categories />
+				<div className="not-hero">
+					<div className="dabba-left-parent">
+						<DabbaLeft />
+					</div>
+					{/* <CarouselComponent articles={articles.slice(0, 6)} />
+                    <FamousArticles articles={articles} ids={famousArticleIDs} /> */}
+					<ArticlesList articles={articles} />
+					<div className="dabba-right-parent">
+						<DabbaRight />
+					</div>
+				</div>
+			</div>
+			<Footer />
+		</>
+	);
+};
+
+export default HomePage;

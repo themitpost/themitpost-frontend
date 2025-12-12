@@ -4,7 +4,7 @@
 	border-bottom: 1px solid gray;
 	/* top: calc(min(4rem, 10vw) + 2vh + 3rem + 25.6px); */
 	top: calc(min(4rem, 10vw) + 2vh + 4rem + 5.6px);
-	z-index: 999;
+	z-index: 990;
 	transform: translateY(-100%);
 }
 

@@ -1,144 +1,48 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Categories from "./components/Categories";
-// import CarouselComponent from "./components/CarouselComponent";
-// import FamousArticles from "./components/FamousArticles";
-import DabbaLeft from "./components/DabbaLeft";
-import DabbaRight from "./components/DabbaRight";
-import ArticlesList from "./components/ArticlesList";
-import ArticleDetail from "./components/ArticleDetail";
-import BoardMembers from "./components/BoardMembers";
-import SubboardMembers from "./components/SubboardMembers";
-import Footer from "./components/Footer";
-import Login from "./components/Login";
+import Loader from "./components/Loader";
 import "./index.css";
-import RotatingCircle from "./components/RotatingCircle";
-import AdminDashboard from "./components/AdminDashboard";
-import AdminArticlesList from "./components/AdminArticlesList";
-import EditArticle from "./components/EditArticle";
-import BoardPage from "./components/BoardPage";
-
-const HomePage = ({ articles, famousArticleIDs, listArticleIDs }) => {
-  return (
-    <>
-      <RotatingCircle />
-      <Navbar />
-      <div className="app-container">
-        <Hero />
-        <Categories />
-        <div className="not-hero">
-          <div className="dabba-left-parent">
-            <DabbaLeft />
-          </div>
-          {/* <CarouselComponent articles={articles.slice(0, 6)} />
-					<FamousArticles articles={articles} ids={famousArticleIDs} /> */}
-          <ArticlesList articles={articles} ids={listArticleIDs} />
-          <div className="dabba-right-parent">
-            <DabbaRight />
-          </div>
-        </div>
-      </div>
-      <Footer />
-    </>
-  );
-};
-
-const ProtectedRoute = ({ children }) => {
-  const { currentUser } = useAuth();
-  return currentUser ? children : <Navigate to="/login" replace />;
-};
+import AppRouter from "./routes/AppRouter";
 
 const App = () => {
-  const [articles, setArticles] = useState([]);
-  const { currentUser } = useAuth(); // Now this will work properly
+	const [articles, setArticles] = useState([]);
+	const { currentUser } = useAuth(); // Now this will work properly
+	const [loading, setLoading] = useState(true);
 
-  const famousArticleIDs = [
-    "692e966bfc60a7b6489dc2ec",
-    "692e966bfc60a7b6489dc2ef",
-    "692e966bfc60a7b6489dc2ee",
-  ];
-  const listArticleIDs = [];
+	useEffect(() => {
+		const fetchArticles = async () => {
+			setLoading(true); // Set loading to true before fetching
+			try {
+				const headers = {};
+				if (currentUser) {
+					headers["Authorization"] = `Bearer ${currentUser.token}`;
+				}
 
-  useEffect(() => {
-    const fetchArticles = async () => {
-      try {
-        const headers = {};
-        if (currentUser) {
-          headers["Authorization"] = `Bearer ${currentUser.token}`;
-        }
+				const response = await fetch(`${import.meta.env.VITE_API_URL}/api/articles`, {
+					headers,
+				});
 
-        const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/articles`,
-          {
-            headers,
-          }
-        );
+				if (!response.ok) throw new Error("Failed to fetch articles");
 
-        if (!response.ok) throw new Error("Failed to fetch articles");
+				const data = await response.json();
+				const sortedArticles = data.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+				setArticles(sortedArticles);
+			} catch (error) {
+				console.error("Error fetching articles:", error);
+			} finally {
+				setLoading(false); // Set loading to false once the fetch is done (whether successful or not)
+			}
+		};
 
-        const data = await response.json();
-        const sortedArticles = data.sort(
-          (a, b) => new Date(b.pubDate) - new Date(a.pubDate)
-        );
-        setArticles(sortedArticles);
-      } catch (error) {
-        console.error("Error fetching articles:", error);
-      }
-    };
+		fetchArticles();
+	}, [currentUser]);
 
-    fetchArticles();
-  }, [currentUser]);
-
-  return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <HomePage
-            articles={articles}
-            famousArticleIDs={famousArticleIDs}
-            listArticleIDs={listArticleIDs}
-          />
-        }
-      />
-      <Route
-        path="/articles/:id"
-        element={<ArticleDetail articles={articles} />}
-      />
-      <Route path="/board" element={<BoardPage />} />
-      <Route path="/board/members" element={<BoardMembers />} />
-      <Route path="/board/subboard" element={<SubboardMembers />} />
-
-      <Route path="/login" element={<Login />} />
-      <Route
-        path="/admin/"
-        element={
-          <ProtectedRoute>
-            <AdminDashboard articles={articles} />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/admin/articles"
-        element={
-          <ProtectedRoute>
-            <AdminArticlesList articles={articles} />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/admin/edit/:id"
-        element={
-          <ProtectedRoute>
-            <EditArticle />
-          </ProtectedRoute>
-        }
-      />
-    </Routes>
-  );
+	return (
+		<>
+			{loading && <Loader />} {/* Show the loader only when loading */}
+			<AppRouter articles={articles} />
+		</>
+	);
 };
 
 export default App;

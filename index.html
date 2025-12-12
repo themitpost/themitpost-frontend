@@ -14,10 +14,18 @@
 		<div id="root"></div>
 		<script type="module" src="/src/main.jsx"></script>
 		<script>
+			document.documentElement.style.setProperty(
+				"--navbar-height",
+				`calc(min(4rem, 10vw) + 2rem + 2vh)`
+			);
 			window.addEventListener("scroll", function () {
 				const logo = document.querySelector(".navbar .navbar-brand-link img");
 				const reduction = Math.min(window.scrollY, 300);
 				logo.style.height = `calc(min(4rem, 10vw) - ${reduction / 15}px)`;
+				document.documentElement.style.setProperty(
+					"--navbar-height",
+					`calc(min(4rem, 10vw) - ${reduction / 15}px + 2rem + 2vh)`
+				);
 			});
 		</script>
 	</body>
