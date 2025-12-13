@@ -28,7 +28,9 @@ const AboutUs = () => {
           </p>
         </article>
       </div>
-      <BackButton />
+      <div className="page-container">
+        <BackButton />
+      </div>
       <Footer />
     </>
   );

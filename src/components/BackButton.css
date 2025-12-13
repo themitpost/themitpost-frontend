@@ -10,7 +10,19 @@
   padding: 1rem 1.8rem;
   border-radius: 0.4rem;
   transition: all 0.3s ease-in-out;
-  margin: 0 3rem;
+  margin: 0.5rem 3rem;
+}
+
+.page-container {
+  position: relative;
+  height: 12vh;
+}
+
+.page-container .back-btn {
+  align-self: flex-start;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 .login-container .back-btn {

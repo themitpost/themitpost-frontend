@@ -14,6 +14,9 @@ const boardData = [
   { name: "Eknoor Singh Chhabra", position: "SMGD" },
   { name: "Shreyansh Giri", position: "PAV" },
   { name: "Vihang", position: "PAV" },
+  { name: "Armaan Gupta", position: "Web Development" },
+  { name: "Arnavpreet Shergill", position: "Web Development" },
+  { name: "Smeet Pancholi", position: "Web Development" },
 ];
 
 const SubboardMembers = () => {

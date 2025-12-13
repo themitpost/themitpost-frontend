@@ -21,8 +21,9 @@ const BoardPage = () => {
         <h3>Subboard Members</h3>
         <SubboardMembers />
       </div>
-      <BackButton />
-
+      <div className="page-container">
+        <BackButton />
+      </div>
       <Footer />
     </>
   );
