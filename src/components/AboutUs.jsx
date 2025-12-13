@@ -3,6 +3,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import RotatingCircle from "./RotatingCircle";
+import BackButton from "./BackButton";
 import "./AboutUs.css";
 
 const AboutUs = () => {
@@ -27,7 +28,7 @@ const AboutUs = () => {
           </p>
         </article>
       </div>
-
+      <BackButton />
       <Footer />
     </>
   );

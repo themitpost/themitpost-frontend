@@ -1,0 +1,24 @@
+.back-btn {
+  background: none;
+  /* border: 1.5px solid gray; */
+  border: none;
+  color: white;
+  background-color: #f06739;
+  cursor: pointer;
+  font-size: min(1rem, 3.5vw);
+  width: fit-content;
+  padding: 1rem 1.8rem;
+  border-radius: 0.4rem;
+  transition: all 0.3s ease-in-out;
+  margin: 0 3rem;
+}
+
+.login-container .back-btn {
+  margin: auto;
+  transform: translateY(-2rem);
+}
+
+.back-btn:hover {
+  color: white;
+  background-color: #b7411a;
+}

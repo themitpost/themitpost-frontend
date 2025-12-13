@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import RotatingCircle from "./RotatingCircle";
 import BoardMembers from "./BoardMembers";
 import SubboardMembers from "./SubboardMembers";
+import BackButton from "./BackButton";
 import "./BoardPage.css";
 
 const BoardPage = () => {
@@ -20,6 +21,7 @@ const BoardPage = () => {
         <h3>Subboard Members</h3>
         <SubboardMembers />
       </div>
+      <BackButton />
 
       <Footer />
     </>

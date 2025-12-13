@@ -3,6 +3,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import RotatingCircle from "./RotatingCircle";
+import BackButton from "./BackButton";
 import "./FromTheEditorsDesk.css";
 
 const FromTheEditorsDesk = () => {
@@ -61,7 +62,7 @@ const FromTheEditorsDesk = () => {
           </p>
         </article>
       </div>
-
+      <BackButton />
       <Footer />
     </>
   );
